@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Entradas</title>
+</head>
+<body>
+    <h1>Lista de Entradas</h1>
+    <ul>
+        {% for entrada in entradas %}
+            <li>
+                <h2>{{ entrada.titulo }}</h2>
+                <p>{{ entrada.contenido }}</p>
+                <p>Autor: <a href="{% url 'entradas_por_autor' nombre_autor=entrada.autor.nombre %}">{{ entrada.autor.nombre }}</a></p>
+                <p>Fecha de Publicación: {{ entrada.fecha_publicacion }}</p>
+                <p></p><a href="{% url 'lista_autores' %}">Ver lista de autores</a></p>
+
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+
